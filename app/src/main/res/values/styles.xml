@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="standard_text_input_layout_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
+        <item name="android:textAppearance">@style/TextInputHintStyle</item>
+        <item name="boxCollapsedPaddingTop">0dp</item>
+    </style>
+
+    <style name="standard_text_input_edit_text_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:importantForAutofill" tools:targetApi="o">no</item>
+        <item name="android:inputType">numberDecimal</item>
+    </style>
+
+    <style name="TextInputHintStyle" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">12sp</item> <!-- Makes hint smaller -->
+    </style>
+
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="?attr/actionBarSize"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.MainActivity">
+
+    <!-- Helper Text at the Top -->
+    <TextView
+        android:id="@+id/helper_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:gravity="center"
+        android:text="@string/please_enter_in_the_numbers"
+        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+        android:textColor="?attr/colorTertiary"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- "From" Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_from"
+        style="@style/standard_text_input_layout_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:hint="@string/from"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/helper_text">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_from"
+            style="@style/standard_text_input_edit_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- "To" Input Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_to"
+        style="@style/standard_text_input_layout_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/small_margin"
+        android:hint="@string/to"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_from">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_to"
+            style="@style/standard_text_input_edit_text_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- CardView to Display the Number -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardview_number"
+        style="@style/Widget.Material3.CardView.Filled"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/small_margin"
+        app:cardBackgroundColor="@color/md_theme_tertiary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_to">
+
+        <!-- Centered Number Text -->
+        <TextView
+            android:id="@+id/text_view_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:freezesText="true"
+            android:gravity="center"
+            android:text="@string/default_number"
+            android:textColor="@color/md_theme_secondary"
+            android:textSize="@dimen/text_size_large_number"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="48sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
