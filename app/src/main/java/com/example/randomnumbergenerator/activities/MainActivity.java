@@ -47,12 +47,10 @@ public class MainActivity extends AppCompatActivity {
         String toText = binding.contentMain.etTo.getText().toString();
 
         if (fromText.isEmpty() || toText.isEmpty()) {
-            if (fromText.isEmpty()) {
+            if (fromText.isEmpty())
                 binding.contentMain.etFrom.setError("Please enter a number");
-            }
-            if (toText.isEmpty()) {
+            if (toText.isEmpty())
                 binding.contentMain.etTo.setError("Please enter a number");
-            }
             Toast.makeText(this, "Both fields must be filled", Toast.LENGTH_SHORT).show();
         } else {
             try {
@@ -62,6 +60,12 @@ public class MainActivity extends AppCompatActivity {
                 int randomNumber = mRandomNumber.getCurrentRandomNumber();
                 binding.contentMain.textViewNumber.setText(String.valueOf(randomNumber));
                 mNumberHistory.add(randomNumber);
+            } catch (NumberFormatException e) {
+                if (Long.parseLong(fromText) > Integer.MAX_VALUE || Long.parseLong(fromText) < Integer.MIN_VALUE)
+                    binding.contentMain.etFrom.setError("Number must be valid int");
+                if (Long.parseLong(toText) > Integer.MAX_VALUE || Long.parseLong(toText) < Integer.MIN_VALUE)
+                    binding.contentMain.etTo.setError("Number must be a valid int");
+                Toast.makeText(this, "Invalid range: Number must be a valid int", Toast.LENGTH_SHORT).show();
             } catch (RuntimeException e) {
                 binding.contentMain.etFrom.setError("From must be less than To");
                 binding.contentMain.etTo.setError("To must be greater than From");
